@@ -79,16 +79,10 @@ function resetTimer() {
   intervalId = setInterval("display();", cycle);
 }
 
-function init() {
-  cycle = 50;
-  elementText = svgDocument.getElementById('timeText');
-  elementDisc = svgDocument.getElementById('timeDisc');
-  elementHandle = svgDocument.getElementById('handle');
-  var $window = $(window);
-  $window.resize( updateWindow );
-  $window.resize();
-  $('#new').click( resetTimer );
-  resetTimer();
+function sync(event, ui) {
+  if( 'clock-page' == ui.toPage[0].id ) {
+    svgInit();
+  }
 }
 
 function svgWait() {
@@ -96,14 +90,29 @@ function svgWait() {
   if (typeof svgEmbed != 'undefined') {
     if (typeof svgEmbed.getSVGDocument != 'undefined') {
       svgDocument = svgEmbed.getSVGDocument();
-      if (null != svgDocument) {
-        init();
-      }
-      else {
+      if (null == svgDocument) {
         setTimeout( svgWait,5 );
       }
     }
   }
 }
 
-$( svgWait );
+function svgInit() {
+  svgWait();
+  elementText = svgDocument.getElementById('timeText');
+  elementDisc = svgDocument.getElementById('timeDisc');
+  elementHandle = svgDocument.getElementById('handle');  
+}
+
+function init() {
+  cycle = 50;
+  svgInit();
+  var $window = $(window);
+  $window.resize( updateWindow );
+  $window.resize();
+  $('#new').click( resetTimer );
+  resetTimer();
+  $( document ).on( 'pagecontainershow', sync);
+}
+
+$( init );
