@@ -1,0 +1,22 @@
+{
+  "version": "0.1",
+  "name": "TempusFugit",
+  "description": "tempus fugit",
+  "launch_path": "/index.html",
+  "icons": {
+    "16": "/img/icons/vergil-16.png",
+    "32": "/img/icons/vergil-32.png",
+    "48": "/img/icons/vergil-48.png",
+    "60": "/img/icons/vergil-60.png",
+    "64": "/img/icons/vergil-64.png",
+    "90": "/img/icons/vergil-90.png",
+    "120": "/img/icons/vergil-120.png",
+    "128": "/img/icons/vergil-128.png",
+    "256": "/img/icons/vergil-256.png"
+  },
+  "developer": {
+    "name": "Oliver Merkel",
+    "url": "https://github.com/OMerkel/tempus-fugit"
+  },
+  "installs_allowed_from": ["*"]
+}

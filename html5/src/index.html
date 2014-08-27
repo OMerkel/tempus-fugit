@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html manifest="offline.appcache">
+<head profile="http://dublincore.org/documents/dcq-html/">
+  <link rel="icon" href="img/icons/favicon.ico" type="image/x-icon" />
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8" />
+  <meta name="AUTHOR" content="Oliver Merkel" />
+  <meta name="COPYRIGHT" content="Oliver Merkel" />
+  <meta name="DC.creator" content="Oliver Merkel" />
+  <meta name="DC.contributor" content="Oliver Merkel" />
+  <meta name="DC.rights" content="
+See file named LICENSE being part of the repository.
+
+Copyright (c) 2014
+@author Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de.
+All rights reserved.
+
+Logos and trademarks belong to their respective owners.
+
+All source code also including code parts written in HMTL, Javascript, CSS is under MIT License.
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the &quot;Software&quot;), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+If not otherwise stated all game graphics (independent of its format) are licensed under
+    http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US
+    Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+" />
+  <title>tempus fugit</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon" href="img/icons/vergil-128.png" />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    name='viewport' />
+  <link rel='stylesheet' type='text/css' href='thirdparty/jquery.mobile-1.4.3/jquery.mobile-1.4.3.css' />
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script src='thirdparty/jquery-1.11.1.js' type='text/javascript'></script>
+  <script src='thirdparty/jquery.mobile-1.4.3/jquery.mobile-1.4.3.js' type='text/javascript'></script>
+  <script src='js/common.js' type='text/javascript'></script>
+  <script src='js/hmi.js' type='text/javascript' defer></script>
+</head>
+<body>
+<div data-role='page' data-theme='b' id='game-page' class='mybackground'>
+  <div data-role='header' data-position='fixed'>
+    <center id='myheader'>tempus fugit</center>
+    <a href='#left-panel' data-icon='bars' data-iconpos='notext'>Navigation</a>
+  </div><!-- /header -->
+  <div role='main' class='mycontent ui-content'>
+    <div id='game-region'>
+      <noscript>
+        <p>This HTML5 application depends on enabled Javascript capabilities in your browser.</p>
+        <p>Please consider enabling Javascript if disabled through settings.</p>
+      </noscript>
+      <center>
+        <embed name='clock' id='clock'
+          type='image/svg+xml'
+          src='img/clockface01.svg'
+          style='width:300px;' border='1' />
+      </center>
+    </div>
+  </div><!-- /content -->
+  <div data-role='panel' id='left-panel' data-position='left'
+    data-display='overlay' data-theme='b'>
+    <ul data-role='listview' data-theme='b' data-divider-theme='d'
+      data-icon='false' data-global-nav='demos' class='jqm-list'>
+      <li data-icon='back' data-rel='close'><a href='#'>Back</a></li>
+      <li data-role='list-divider'>&nbsp;</li>
+      <li data-icon='star' ><a id='new' href='#'>New</a></li>
+      <li data-icon='grid'><a href='#options-menu' data-rel='page'
+        data-transition='slideup'>Options&#8230;</a></li>
+      <li data-icon='info' ><a href='#about-page' data-rel='page'
+        data-transition='pop'>About&#8230;</a></li>
+    </ul>
+  </div><!-- /panel -->
+</div><!-- /page -->
+
+<div data-role='page' data-theme='b' id='options-menu'>
+  <div data-role='header'>
+    <h1><small>Options</small></h1>
+    <a href='#' data-rel='back' data-role='button'
+      data-icon='delete' data-iconpos='notext' class='ui-btn-left'>Close</a>
+  </div><!-- /header -->
+  <div data-role='content'>
+    <form>
+      <fieldset data-role='controlgroup'>
+        <legend>Preset</legend>
+        <input name='preset' id='preset5min'
+          type='radio'>
+        <label for='preset5min'>
+          5 min
+        </label>
+        <input name='preset' id='preset10min'
+          checked='checked' type='radio'>
+        <label for='preset10min'>
+          10 min
+        </label>
+        <input name='preset' id='preset15min'
+          type='radio'>
+        <label for='preset15min'>
+          15 min
+        </label>
+        <input name='preset' id='preset20min'
+          type='radio'>
+        <label for='preset20min'>
+          20 min
+        </label>
+        <input name='preset' id='preset30min'
+          type='radio'>
+        <label for='preset30min'>
+          30 min
+        </label>
+        <input name='preset' id='preset45min'
+          type='radio'>
+        <label for='preset45min'>
+          45 min
+        </label>
+        <input name='preset' id='preset60min'
+          type='radio'>
+        <label for='preset60min'>
+          60 min
+        </label>
+      </fieldset>
+    </form>
+    <a href='#' data-role='button' data-icon='check'
+      data-rel='back' data-theme='c'>Ok</a>
+  </div><!-- /content -->
+</div><!-- /page -->
+
+<div data-role='page' data-theme='b' id='about-page'>
+  <div data-role='header'>
+    <a href='#' data-rel='back'
+      class='ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-corner-all'>Back</a>
+    <h4>About tempus fugit</h4>
+  </div><!-- /header -->
+  <div role='main' class='ui-content'>
+    <h3>Legal</h3>
+    <figure class='diagram' style='float: right;'>
+      <img src='img/oliver-ferschweiler_plateau.jpg' />
+      <figcaption>Oliver Merkel, <a rel='license'
+        href='http://creativecommons.org/licenses/by-nc-nd/4.0/'
+        target='_blank'>cc-by-nc-nd 4.0</a>.</figcaption>
+    </figure>
+    <p>Copyright (c) 2014<br />
+    <em>@author</em> Oliver Merkel, Merkel(dot) Oliver(at) web(dot) de.<br />
+    All rights reserved.<br />
+    Logos and trademarks belong to their respective owners.</p>
+    <p>All source code also including code parts written in HMTL, Javascript, CSS is under MIT License.</p>
+    <h4>The MIT License (MIT)</h4>
+    <p>Copyright (c) 2014 Oliver Merkel, Merkel(dot) Oliver(at) web(dot)de</p>
+
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+    this software and associated documentation files (the &quot;Software&quot;), to deal in
+    the Software without restriction, including without limitation the rights to
+    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+    the Software, and to permit persons to whom the Software is furnished to do so,
+    subject to the following conditions:</p>
+
+    <p>The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.</p>
+
+    <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+    <p>If not otherwise stated all game graphics (independent of its format) are licensed under
+      <br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"
+      target="_blank"><img alt="Creative Commons License" style="border-width:0"
+      src="img/icons/cc_by_nc_sa.png" /></a><br />Images are licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"
+      target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+      International License</a>.
+    </p>
+    <div data-role="collapsible-set" data-theme="c" data-content-theme="d"
+      data-iconpos="right" data-collapsed-icon="arrow-l" data-expanded-icon="arrow-d">
+    <div data-role="collapsible">
+      <h4>Third Party Code Licenses</h4>
+      <p>This <b>tempus fugit</b> implementation uses unmodified
+      independent code libraries provided by <em>third parties</em>.
+      Since their licenses might vary the corresponding information is
+      <em>externally linked</em> below. Thus <em>these external links</em>
+      will enable you to reproduce any copyright notice,
+      any related list of conditions, disclaimers, and especially
+      the copyright holders and authors of the corresponding third
+      party functionality.</p>
+      <a href="https://github.com/jquery/jquery" data-role="button" data-theme="c"
+        rel="external" target="_blank" type="text/html"
+        title="jQuery - Repository">
+        <img src="thirdparty/jquery-favicon.ico" />
+        jQuery: MIT</a>
+      <a href="https://github.com/jquery/jquery-mobile" data-role="button" data-theme="c"
+        rel="external" target="_blank" type="text/html"
+        title="jQuery Mobile - Repository">
+        <img src="thirdparty/jquery.mobile-1.4.3/demos/favicon.ico" />
+        jQuery Mobile: MIT</a>
+    </div><!-- collapsible -->
+    </div><!-- collapsible-set -->
+    <a href='#' data-role='button' data-icon='back'
+      data-rel='back'>Back</a>
+  </div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
