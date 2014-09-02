@@ -66,14 +66,7 @@ function updateWindow() {
 function resetTimer() {
   var ONESECOND = 1000;
   var ONEMINUTE = 60 * ONESECOND;
-  timeSpan = ONEMINUTE * (
-    $('#preset5min').is(':checked') ? 5 :
-    $('#preset10min').is(':checked') ? 10 :
-    $('#preset15min').is(':checked') ? 15 :
-    $('#preset20min').is(':checked') ? 20 :
-    $('#preset30min').is(':checked') ? 30 :
-    $('#preset45min').is(':checked') ? 45 :
-    60 );
+  timeSpan = ONEMINUTE * 15;
   startDate = new Date();
   startTime = startDate.getTime();
   if(null != intervalId) {
@@ -88,6 +81,62 @@ function sync(event, ui) {
   }
 }
 
+function presetTime(pageX, pageY) {
+  if (null==intervalId) {
+    var centerX = svgDocument.defaultView.innerWidth >> 1;
+    var centerY = svgDocument.defaultView.innerHeight >> 1;
+    var x = (pageX - centerX);
+    var y = (pageY - centerY);
+    var distance = Math.sqrt(x*x+y*y);
+    if (distance < centerX && distance > 0.80 * centerX ) {
+      var deg = Math.atan(y / x) / Math.PI * 180.0 +
+        ( x>=0 ? 90.0 : 270.0 );
+      var min = deg / 6.0;
+      var ONESECOND = 1000;
+      var ONEMINUTE = 60 * ONESECOND;
+      timeSpan = ONEMINUTE * min;
+      startDate = new Date();
+      startTime = startDate.getTime();
+      display();
+    }
+  }
+}
+
+function mousePresetTime(evt) {
+  presetTime(evt.pageX, evt.pageY);
+}
+
+function touchPresetTime(evt) {
+  presetTime(evt.changedTouches[0].pageX, evt.changedTouches[0].pageY);
+}
+
+function stopTimer(pageX, pageY) {
+  clearInterval( intervalId );
+  intervalId = null;
+  presetTime(pageX, pageY);
+}
+
+function mouseStopTimer(evt) {
+  stopTimer(evt.pageX, evt.pageY);
+}
+
+function touchStopTimer(evt) {
+  stopTimer(evt.changedTouches[0].pageX, evt.changedTouches[0].pageY);
+}
+
+function startTimer(pageX, pageY) {
+  presetTime(pageX, pageY);
+  intervalId = setInterval("display();", cycle);
+}
+
+function mouseStartTimer(evt) {
+  startTimer(evt.pageX, evt.pageY);
+}
+
+function touchStartTimer(evt) {
+  startTimer(evt.changedTouches[0].pageX, evt.changedTouches[0].pageY);
+}
+
 function svgWait() {
   var svgEmbed = document.embeds['clock'];
   if (typeof svgEmbed != 'undefined') {
@@ -100,6 +149,12 @@ function svgWait() {
         elementText = svgDocument.getElementById('timeText');
         elementDisc = svgDocument.getElementById('timeDisc');
         elementHandle = svgDocument.getElementById('handle');
+        svgDocument.onmousedown = mouseStopTimer;
+        svgDocument.onmousemove = mousePresetTime;
+        svgDocument.onmouseup = mouseStartTimer;
+        svgDocument.ontouchstart = touchStopTimer;
+        svgDocument.ontouchmove = touchPresetTime;
+        svgDocument.ontouchend = touchStartTimer;
       }
     }
   }
@@ -115,7 +170,6 @@ function init() {
   var $window = $(window);
   $window.resize( updateWindow );
   $window.resize();
-  $('#new').click( resetTimer );
   resetTimer();
   $( document ).on( 'pagecontainershow', sync);
 }
