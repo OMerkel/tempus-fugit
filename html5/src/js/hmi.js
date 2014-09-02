@@ -8,6 +8,7 @@
 var intervalId = null;
 var startDate, startTime;
 var svgDocument;
+var timeSelected = false;
 
 function display() {
   if (null != svgDocument) {
@@ -22,6 +23,7 @@ function display() {
     sec = sec < 0 ? 0 : sec;
     elementText.textContent = (min<10 ? '0' : '') + min + ':' +
       (sec<10 ? '0' : '') + sec;
+    exactTime = exactTime < 0 ? 0 : exactTime;
     var exactMin = exactTime / 60.0;
     var exactSec = exactTime - 60.0 * min;
     var showTicking = false;
@@ -49,6 +51,7 @@ function display() {
     if (exactTime <= cycle / 1000.0) {
       clearInterval( intervalId );
       intervalId = null;
+      timeSelected = false;
     }
   }
 }
@@ -67,6 +70,7 @@ function resetTimer() {
   var ONESECOND = 1000;
   var ONEMINUTE = 60 * ONESECOND;
   timeSpan = ONEMINUTE * 15;
+  timeSelected = true;
   startDate = new Date();
   startTime = startDate.getTime();
   if(null != intervalId) {
@@ -95,9 +99,12 @@ function presetTime(pageX, pageY) {
       var ONESECOND = 1000;
       var ONEMINUTE = 60 * ONESECOND;
       timeSpan = ONEMINUTE * min;
-      startDate = new Date();
-      startTime = startDate.getTime();
-      display();
+      timeSelected = min > 1.0 / 60.0;
+      if (timeSelected) {
+        startDate = new Date();
+        startTime = startDate.getTime();
+        display();
+      }
     }
   }
 }
@@ -111,9 +118,11 @@ function touchPresetTime(evt) {
 }
 
 function stopTimer(pageX, pageY) {
-  clearInterval( intervalId );
-  intervalId = null;
-  presetTime(pageX, pageY);
+  if (null!=intervalId) {
+    clearInterval( intervalId );
+    intervalId = null;
+    presetTime(pageX, pageY);
+  }
 }
 
 function mouseStopTimer(evt) {
@@ -126,7 +135,9 @@ function touchStopTimer(evt) {
 
 function startTimer(pageX, pageY) {
   presetTime(pageX, pageY);
-  intervalId = setInterval("display();", cycle);
+  if (timeSelected) {
+    intervalId = setInterval("display();", cycle);
+  }
 }
 
 function mouseStartTimer(evt) {
