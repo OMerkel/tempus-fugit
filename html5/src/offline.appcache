@@ -1,7 +1,6 @@
 CACHE MANIFEST
-# v0.2
+# v0.1
 css/index.css
-img/clockface01.svg
 img/icons/cc_by_nc_sa.png
 img/icons/favicon.ico
 img/icons/vergil-120.png
@@ -13,15 +12,16 @@ img/icons/vergil-48.png
 img/icons/vergil-60.png
 img/icons/vergil-64.png
 img/icons/vergil-90.png
+img/clockface01.svg
 img/oliver-ferschweiler_plateau.jpg
 js/hmi.js
-thirdparty/jquery-1.11.1.js
-thirdparty/jquery-favicon.ico
 thirdparty/jquery.mobile-1.4.3/demos/favicon.ico
 thirdparty/jquery.mobile-1.4.3/images/ajax-loader.gif
 thirdparty/jquery.mobile-1.4.3/jquery.mobile-1.4.3.css
 thirdparty/jquery.mobile-1.4.3/jquery.mobile-1.4.3.js
 thirdparty/jquery.mobile-1.4.3/LICENSE.txt
+thirdparty/jquery-1.11.1.js
+thirdparty/jquery-favicon.ico
 thirdparty/MIT-LICENSE.txt
 AUTHORS
 index.html
