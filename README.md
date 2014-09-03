@@ -2,6 +2,7 @@
 ============
 
 * _Start an online_ __tempus fugit__ _session on_ http://omerkel.github.io/tempus-fugit/html5/src/
+* _also published in_ <a href='https://marketplace.firefox.com/app/tempusfugit'><img alt='Firefox Marketplace' src='res/marketplace_logo.png' width='128' /></a>
 
 Timer application for various Mobile Operating Systems, Tablets, and Desktop
 
