@@ -6,6 +6,24 @@
 
 Timer application for various Mobile Operating Systems, Tablets, and Desktop
 
+<i>tempus fugit</i> could be used as a non-audio alarming
+<ul>
+<li>countdown timer,</li>
+<li>timer application,</li>
+<li>tea timer,</li>
+<li>kitchen timer, or</li>
+<li>speech timer.</li>
+</ul>
+
+It is a silent timer with visual feedback only! Remaining time is shown in both an analog and digital display, too, at the same time.
+
+In <a href="https://en.wikipedia.org/wiki/Agile_software_development">agile</a> environments like <a href="https://en.wikipedia.org/wiki/Scrum_%28software_development%29">SCRUM</a> the achievements are intended to be made in timeboxed manner. <i>tempus fugit</i> might be used as a kind reminder on remaining time of the <a href="https://en.wikipedia.org/wiki/Timeboxing">timebox</a>. Such that <i>tempus fugit</i> is a valuable add-on e.g. when performing a <a href="https://marketplace.firefox.com/app/scrumpoker">ScrumPoker</a>. During the <i>Scrum Poker</i> to determine estimates for tasks, user stories, or epics in SCRUM the <i>tempus fugit</i> is able to track the time spent on getting each estimate.
+
+License
+-------
+
+See License file. Mind the MIT license text that is also available via the application menu in the upper left inside <i>tempus fugit</i>.
+
 Contributors / Authors
 ----------------------
 
