@@ -48,7 +48,7 @@ function display() {
     var newTransform =
       'translate(' + arcX + ',' + arcY + ')';
     elementHandle.setAttribute('transform', newTransform);
-    if (exactTime <= cycle / 1000.0) {
+    if (0 == exactTime) {
       clearInterval( intervalId );
       intervalId = null;
       timeSelected = false;
@@ -86,7 +86,7 @@ function sync(event, ui) {
 }
 
 function presetTime(pageX, pageY) {
-  if (null==intervalId) {
+  if (null==intervalId && timeSelected) {
     var centerX = svgDocument.defaultView.innerWidth >> 1;
     var centerY = svgDocument.defaultView.innerHeight >> 1;
     var x = (pageX - centerX);
@@ -121,8 +121,11 @@ function stopTimer(pageX, pageY) {
   if (null!=intervalId) {
     clearInterval( intervalId );
     intervalId = null;
-    presetTime(pageX, pageY);
   }
+  else {
+    timeSelected = true;
+  }
+  presetTime(pageX, pageY);
 }
 
 function mouseStopTimer(evt) {
