@@ -84,10 +84,44 @@ If not otherwise stated all graphics (independent of its format) are licensed un
       data-icon='false' data-global-nav='demos' class='jqm-list'>
       <li data-icon='back' data-rel='close'><a href='#'>Back</a></li>
       <li data-role='list-divider'>&nbsp;</li>
+      <li data-icon='grid'><a href='#options-menu' data-rel='page'
+        data-transition='slideup'>Options&#8230;</a></li>
       <li data-icon='info' ><a href='#about-page' data-rel='page'
         data-transition='pop'>About&#8230;</a></li>
     </ul>
   </div><!-- /panel -->
+</div><!-- /page -->
+
+<div data-role='page' data-theme='b' id='options-menu'>
+  <div data-role='header'>
+    <h1><small>Options</small></h1>
+    <a href='#' data-rel='back' data-role='button'
+      data-icon='delete' data-iconpos='notext' class='ui-btn-left'>Close</a>
+  </div><!-- /header -->
+  <div data-role='content'>
+    <form>
+      <fieldset data-role='controlgroup'>
+        <legend>Snap to&#8230;</legend>
+        <input name='snap' id='snapnone'
+          type='radio'>
+        <label for='snapnone'>
+          None
+        </label>
+        <input name='snap' id='snap30sec'
+          type='radio'>
+        <label for='snap30sec'>
+          30 seconds
+        </label>
+        <input name='snap' id='snap1min'
+          checked='checked' type='radio'>
+        <label for='snap1min'>
+          1 minute
+        </label>
+      </fieldset>
+    </form>
+    <a href='#' data-role='button' data-icon='check'
+      data-rel='back' data-theme='c'>Ok</a>
+  </div><!-- /content -->
 </div><!-- /page -->
 
 <div data-role='page' data-theme='b' id='about-page'>

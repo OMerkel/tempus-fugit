@@ -95,7 +95,9 @@ function presetTime(pageX, pageY) {
     if (distance < centerX && distance > 0.80 * centerX ) {
       var deg = Math.atan(y / x) / Math.PI * 180.0 +
         ( x>=0 ? 90.0 : 270.0 );
-      var min = deg / 6.0;
+      var min = $('#snapnone').is(':checked') ? deg / 6.0 :
+        $('#snap30sec').is(':checked') ? Math.floor(deg / 3.0) * 0.5 :
+        Math.floor(deg / 6.0);
       var ONESECOND = 1000;
       var ONEMINUTE = 60 * ONESECOND;
       timeSpan = ONEMINUTE * min;
