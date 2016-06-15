@@ -1,9 +1,22 @@
-//
-// Copyright (c) 2014 Oliver Merkel
-// All rights reserved.
-//
-// @author Oliver Merkel, <Merkel(dot)Oliver(at)web(dot)de>
-//
+/**
+ * @file hmi.js
+ * @author Oliver Merkel <Merkel(dot)Oliver(at)web(dot)de>
+ * @date 2014 August 27th
+ *
+ * @section LICENSE
+ *
+ * Copyright 2016, Oliver Merkel <Merkel(dot)Oliver(at)web(dot)de>
+ * All rights reserved.
+ *
+ * Released under the MIT license.
+ *
+ * @section DESCRIPTION
+ *
+ * @brief Class Hmi.
+ * 
+ * Class representing the view or Hmi control of tempus fugit application.
+ *
+ */
 
 var intervalId = null;
 var startDate, startTime;
