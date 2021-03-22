@@ -56,33 +56,34 @@ If not otherwise stated all graphics (independent of its format) are licensed un
   <link rel='stylesheet' type='text/css' href='css/index.css' />
   <script src='thirdparty/jquery-2.2.4.js' type='text/javascript'></script>
   <script src='thirdparty/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js' type='text/javascript'></script>
+  <script src='thirdparty/raphael-2.2.0/raphael.js' type='text/javascript'></script>
   <script src='js/hmi.js' type='text/javascript' defer></script>
 </head>
 <body>
 <div data-role='page' data-theme='b' id='clock-page' class='mybackground'>
   <div data-role='header' data-position='fixed'>
     <center id='myheader'>tempus fugit</center>
-    <a href='#left-panel' data-icon='bars' data-iconpos='notext'>Navigation</a>
+    <a href='#left-panel' id='customMenu' class='customMenu'
+      data-icon='custom' data-iconpos='notext'>Menu</a>
   </div><!-- /header -->
   <div role='main' class='mycontent ui-content'>
-    <div id='clock-region'>
-      <noscript>
-        <p>This HTML5 application depends on enabled Javascript capabilities in your browser.</p>
-        <p>Please consider enabling Javascript if disabled through settings.</p>
-      </noscript>
-      <center>
-        <embed name='clock' id='clock'
-          type='image/svg+xml'
-          src='img/clockface01.svg'
-          style='width:300px;' border='1' />
-      </center>
-    </div>
+    <noscript>
+      <p>This HTML5 application depends on enabled Javascript capabilities in your browser.</p>
+      <p>Please consider enabling Javascript if disabled through settings.</p>
+    </noscript>
+    <center>
+      <div id='board'></div>
+      <!-- embed name='clock' id='clock'
+        type='image/svg+xml'
+        src='img/clockface01.svg'
+        style='width:300px;' border='1' / -->
+    </center>
   </div><!-- /content -->
   <div data-role='panel' id='left-panel' data-position='left'
     data-display='overlay' data-theme='b'>
     <ul data-role='listview' data-theme='b' data-divider-theme='d'
       data-icon='false' data-global-nav='demos' class='jqm-list'>
-      <li data-icon='back' data-rel='close'><a href='#'>Back</a></li>
+      <li data-icon='carat-l' data-rel='close'><a href='#'>Close Menu</a></li>
       <li data-role='list-divider'>&nbsp;</li>
       <li data-icon='grid'><a href='#options-menu' data-rel='page'
         data-transition='slideup'>Options&#8230;</a></li>
@@ -166,7 +167,7 @@ If not otherwise stated all graphics (independent of its format) are licensed un
     <p>If not otherwise stated all graphics (independent of its format) are licensed under
       <br /><a rel='license' href='http://creativecommons.org/licenses/by-nc-sa/4.0'
       target='_blank'><img alt='Creative Commons License' style='border-width:0'
-      src='img/icons/cc_by_nc_sa.png' /></a><br />Images are licensed under a
+      src='img/icons/cc_by_nc_sa.png' /></a><br />
       <a rel='license' href='http://creativecommons.org/licenses/by-nc-sa/4.0'
       target='_blank'>Creative Commons Attribution-NonCommercial-ShareAlike 4.0
       International License</a>.
@@ -186,13 +187,18 @@ If not otherwise stated all graphics (independent of its format) are licensed un
       <a href='https://github.com/jquery/jquery' data-role='button' data-theme='c'
         rel='external' target='_blank' type='text/html'
         title='jQuery - Repository'>
-        <img src='thirdparty/jquery-favicon.ico' />
+        <img src='thirdparty/jquery-favicon.ico' width='16' height='16' />
         jQuery: MIT</a>
       <a href='https://github.com/jquery/jquery-mobile' data-role='button' data-theme='c'
         rel='external' target='_blank' type='text/html'
         title='jQuery Mobile - Repository'>
-        <img src='thirdparty/jquery.mobile-1.4.5/demos/favicon.ico' />
+        <img src='thirdparty/jquery.mobile-1.4.5/demos/favicon.ico' width='16' height='16' />
         jQuery Mobile: MIT</a>
+      <a href='https://github.com/DmitryBaranovskiy/raphael' data-role='button' data-theme='c'
+        rel='external' target='_blank' type='text/html'
+        title='Raphaël - Repository'>
+        <img src='thirdparty/raphael-2.2.0/raphael_logo.png' width='16' height='16' />
+        Raphaël: MIT</a>
     </div><!-- collapsible -->
     </div><!-- collapsible-set -->
     <a href='#' data-role='button' data-icon='back'
